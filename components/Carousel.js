@@ -27,16 +27,22 @@ export default class CarouselComponent extends React.Component {
           },
           {
             key:3,
-            url:require('./images/numberquestion.jpg'),
+            url:require('./images/question.jpg'),
               title:"B3:",
-              text: "Nhập chọn số câu hỏi bạn muốn thực hiện tối thiểu 5 câu và tối đa 10 câu",
+              text: "Bắt đầu làm question",
           },
           {
               key:4,
-              url:require('./images/quiz.jpg'),
+              url:require('./images/question2.jpg'),
               title:"B4:",
-              text: "Sau khi dữ liệu đã được tải lên bắt đầu thực hiện bài test",
-          }
+              text: "Trả lời đúng điểm sẽ tự động được cập nhật",
+          },
+          {
+            key:5,
+            url:require('./images/result.jpg'),
+            title:"B5:",
+            text: "Cuối cùng, khi kết thúc bài test sẽ nhận được kết quả",
+        }
         ]
       }
     }
@@ -46,15 +52,13 @@ export default class CarouselComponent extends React.Component {
           <View style={{
               borderRadius: 5,
               height: 300,
-              width:350,
-              padding: 50,
-              marginLeft: 25,
-              marginRight: 25, }}>
+              width:380,
+              padding: 60, }}>
 
-        <ImageBackground source={item.url} style={{width:'100%',height:500}} >
+        <ImageBackground source={item.url} style={{width:'100%',height:500,justifyContent:'center',alignItems:'center'}} >
             <View style={{position:'relative'}}>
-                <View style={{position:'absolute',bottom:-100,left:-120}}>
-                        <Text style={{fontSize: 15,fontWeight:'bold'}}>{item.title}</Text>
+                <View style={{position:'absolute',left:-150,bottom:250}}>
+                        <Text style={{fontSize: 15,fontWeight:'bold',opacity:0.7}}>{item.title}</Text>
                         <Text style={{fontWeight:'bold',opacity:0.8}}>{item.text}</Text>
                 </View>
           
