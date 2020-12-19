@@ -13,8 +13,8 @@ import LevelClient from './LevelComponent';
 import ContactUs from './ContactUs';
 import HelpUser from './Help';
 import UserPanel from './UserPanel';
-import CarouselComponent from './Carousel';
-
+import RankingScreen from './Ranking'
+import History from './History'
 
 
 const Tab = createBottomTabNavigator();
@@ -33,8 +33,8 @@ function TabNavigatorScreen(){
         )
         }}/>
 
-      <Tab.Screen name="Profile" component={ProfileNavigatorScreen} options={{
-        title: "Profile",
+      <Tab.Screen name="History" component={History} options={{
+        title: "History",
         tabBarIcon:({focused})=>(
           <Icon 
           name='users'
@@ -42,7 +42,7 @@ function TabNavigatorScreen(){
           color='#f50' size={30} color={focused ? '#7cc' : '#ccc'}/>
         )
         }} />
-  <Tab.Screen name='Rank' component={RankNavigatorScreen}  options={{ title: 'Rank',
+  <Tab.Screen name='Rank' component={RankingScreen}  options={{ title: 'Rank',
 tabBarIcon:({focused})=>
 (
   <Icon name='trophy' type="font-awesome" color='#f50' size={30} color={focused ? '#7cc':"#ccc"}/>
@@ -101,6 +101,12 @@ function QuizScreen({navigation,route}) {
                 <Text>Quiz</Text>
             </View>
           </TouchableHighlight>
+           <TouchableHighlight underlayColor="#f1f8e9" activeOpacity={0.6} onPress={()=>{navigation.navigate('Help')}} style={styles.menuchoice_details}>
+          <View>
+              <Icon name='question'  type="font-awesome" />
+                <Text>Help</Text>
+          </View>
+        </TouchableHighlight>
       </View>
 
       <View style={styles.menuchoice}>
@@ -112,13 +118,6 @@ function QuizScreen({navigation,route}) {
           </View>
         </TouchableHighlight>
 
-        <TouchableHighlight underlayColor="#f1f8e9" activeOpacity={0.6} onPress={()=>{navigation.navigate('Help')}} style={styles.menuchoice_details}>
-          <View>
-              <Icon name='question'  type="font-awesome" />
-                <Text>Help</Text>
-          </View>
-        </TouchableHighlight>
-
 </View>
     </Card>
     
@@ -127,38 +126,6 @@ function QuizScreen({navigation,route}) {
     </ScrollView>
    
   );
-}
-function ProfileNavigatorScreen() {
-  return (
-    
-    <View style={{textAlign: 'center', marginTop: 300, flexDirection:'row',alignItems: 'center',justifyContent: 'center',opacity:0.5}}>
-      <Icon name="info" size={30} title="Comming Soon !!!" />
-          {/*Icon Component*/}
-      <Text >
-       Comming Soon!!!
-      </Text>
-      
-    </View>
-  );
-}
-
-function RankNavigatorScreen(){
-  return (
-    <View>
-      <Card>
-        <Card.Title>Players Rank</Card.Title>
-        <Card.Divider/>
-        <View style={{textAlign: 'center', marginTop: 50, flexDirection:'row',alignItems: 'center',justifyContent: 'center',opacity:0.5}}>
-      <Icon name="info" size={30} title="Comming Soon !!!" />
-          {/*Icon Component*/}
-      <Text >
-       Comming Soon!!!
-      </Text>
-      
-    </View>
-      </Card>
-    </View>
-  )
 }
 
 const MainNavigator = createDrawerNavigator();
